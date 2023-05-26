@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "4.2.1"
+graphene-django = "3.0.2"
+pytest = "*"
+flake8 = "*"
+psycopg2-binary = "*"
+pytest-cov = "*"
+pytest-pythonpath = "*"
+mixer = "*"
+requests = "*"
+urllib3 = "==1.26.6"
+pytest-django = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"
