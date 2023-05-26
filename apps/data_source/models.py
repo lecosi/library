@@ -22,10 +22,10 @@ class Book(BaseModel):
     external_id = models.CharField(max_length=100)
     subtitle = models.CharField(max_length=100, null=True)
     editor = models.CharField(max_length=100)
-    category = models.ManyToManyField(Category, null=True)
+    category = models.ManyToManyField(Category)
     description = models.TextField(null=True)
     publication_date = models.DateField(null=True, blank=True)
-    author = models.ManyToManyField(Author, null=True)
+    author = models.ManyToManyField(Author)
 
     def __str__(self):
         return self.title
