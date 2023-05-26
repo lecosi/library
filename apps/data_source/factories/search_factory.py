@@ -1,5 +1,8 @@
+
 from apps.data_source.factories.constants import SearchSourceTypeEnum
 from apps.data_source.integrations.google.search_service import GoogleSearch
+from apps.data_source.integrations.open_libra.search_service import \
+    OpenLibraSearch
 
 
 class SearchFactory:
@@ -8,7 +11,7 @@ class SearchFactory:
         if source_type == SearchSourceTypeEnum.GOOGLE_BOOKS.value:
             return GoogleSearch()
 
-        elif source_type == SearchSourceTypeEnum.INTERNET_ARCHIVE.value:
-            return None
+        elif source_type == SearchSourceTypeEnum.OPEN_LIBRA.value:
+            return OpenLibraSearch()
 
         raise ValueError('search source not defined')

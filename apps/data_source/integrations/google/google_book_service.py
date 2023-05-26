@@ -1,3 +1,4 @@
+
 from typing import Any, Dict, Optional
 
 from apps.data_source.integrations.google.constants import (
@@ -9,17 +10,23 @@ from apps.data_source.integrations.google.exceptions import \
 from utils.rest_api_client import RestAPIClient
 
 
-class GoogleSearchService(RestAPIClient):
+class GoogleSearchService:
 
     HEADERS = {
         'Content-Type': 'application/json'
     }
 
+    def __init__(
+        self,
+        rest_api_client: RestAPIClient = RestAPIClient()
+    ):
+        self.rest_api = rest_api_client
+
     def get_books(self, query: str) -> Optional[Dict[str, Any]]:
         endpoint = GoogleURLEnum.SEARCH_BOOKS.value
         url = f'{GOOGLE_API_URL}{endpoint}?q={query}' \
               f'&printType=books&key={GOOGLE_API_KEY}'
-        status_code, data = self.request_get(
+        status_code, data = self.rest_api.request_get(
             url=url,
             headers=self.HEADERS
         )

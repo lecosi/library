@@ -7,26 +7,38 @@ logger = logging.getLogger(__name__)
 
 class RestAPIClient:
 
-    @staticmethod
+    HEADERS = {
+        'Content-Type': 'application/json'
+    }
+
     def request_get(
+        self,
         *,
         url: str,
-        headers: Dict[str, Any]
+        headers: Dict[str, Any] = None
     ) -> Tuple[int, Union[Dict, None]]:
+
+        if not headers:
+            headers = self.HEADERS
+
         response = get(
             url=url,
             headers=headers
         )
         return response.status_code, response.json()
 
-    @staticmethod
     def request_post(
+        self,
         *,
         url: str,
-        headers: Dict[str, Any],
         data: Dict[str, Any],
-        kwargs: Optional[Dict[str, Any]] = dict
+        kwargs: Optional[Dict[str, Any]] = dict,
+        headers: Dict[str, Any] = None
     ) -> Tuple[int, Union[Dict, None]]:
+
+        if not headers:
+            headers = self.HEADERS
+
         response = post(
             url=url,
             headers=headers,
