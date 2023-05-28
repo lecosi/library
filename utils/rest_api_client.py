@@ -1,5 +1,7 @@
 import logging
 from typing import Dict, Any, Union, Tuple, Optional
+
+from aiohttp import ClientSession
 from requests import get, post
 
 logger = logging.getLogger(__name__)
@@ -46,3 +48,11 @@ class RestAPIClient:
             **kwargs
         )
         return response.status_code, response.json()
+
+    @staticmethod
+    def request_get_async(
+        *,
+        url: str,
+        session: ClientSession
+    ):
+        return session.get(url=url)

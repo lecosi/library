@@ -15,6 +15,9 @@ mixer = "*"
 requests = "*"
 urllib3 = "==1.26.6"
 pytest-django = "*"
+django-redis = "*"
+aiohttp = "*"
+strawberry-graphql = {extras = ["debug-server"], version = "*"}
 
 [dev-packages]
 

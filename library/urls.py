@@ -14,10 +14,15 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+import asyncio
+
 from django.contrib import admin
 from django.urls import path
 from graphene_django.views import GraphQLView as BaseGraphQLView
 from django.views.decorators.csrf import csrf_exempt
+from strawberry.django.views import AsyncGraphQLView
+
+from apps.data_source.services import SearchBook
 
 
 class GraphQLView(BaseGraphQLView):
@@ -34,7 +39,29 @@ class GraphQLView(BaseGraphQLView):
         return formatted_error
 
 
+import strawberry
+
+from strawberry.schema.config import StrawberryConfig
+
+
+async def get_name() -> str:
+    search = SearchBook()
+    await search.search_books_in_apis({})
+    await asyncio.sleep(1)
+
+    return "Strawberry"
+
+
+@strawberry.type
+class Query:
+    name: str = strawberry.field(resolver=get_name)
+
+
+schema = strawberry.Schema(query=Query,
+                           config=StrawberryConfig(auto_camel_case=False))
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('gql/', csrf_exempt(GraphQLView.as_view(graphiql=True)))
+    path('gql/',
+         csrf_exempt(AsyncGraphQLView.as_view(graphiql=True, schema=schema)))
 ]
