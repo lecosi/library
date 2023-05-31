@@ -24,7 +24,7 @@ class BookDTO:
             'subtitle': self.subtitle,
             'authors': self.authors,
             'editor': self.editor,
-            'published_date': self.publication_date,
+            'publication_date': self.publication_date,
             'description': self.description,
             'categories': self.categories,
         }

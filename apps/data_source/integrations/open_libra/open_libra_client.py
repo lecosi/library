@@ -3,12 +3,12 @@ from typing import Any, Dict, Optional
 
 from aiohttp import ClientSession
 
-from apps.data_source.abstractions.abstract_search import AbstractSearch
+from apps.data_source.abstractions.abstract_search import SearchMethod
 from apps.data_source.integrations.open_libra.constants import \
     OpenLibraURLEnum, OPEN_LIBRA_API_URL, FILTER_LIST_IN_SEARCH
 
 
-class OpenLibraSearchClient(AbstractSearch):
+class OpenLibraSearchClient(SearchMethod):
 
     async def get_books(
         self,

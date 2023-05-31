@@ -1,4 +1,4 @@
-from apps.data_source.abstractions.abstract_search import AbstractSearch
+from apps.data_source.abstractions.abstract_search import SearchMethod
 from apps.data_source.integrations.google.constants import (
     GOOGLE_API_URL,
     GOOGLE_API_KEY, GoogleURLEnum, FILTER_LIST_IN_SEARCH
@@ -7,11 +7,8 @@ from typing import Dict, Any, Optional
 
 from aiohttp import ClientSession
 
-from apps.data_source.integrations.open_libra.constants import \
-    FILTER_LIST_IN_SEARCH
 
-
-class GoogleSearchClient(AbstractSearch):
+class GoogleSearchClient(SearchMethod):
     async def get_books(
         self,
         data_to_filter: Dict[str, Any],

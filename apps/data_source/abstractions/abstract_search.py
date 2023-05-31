@@ -4,7 +4,7 @@ from typing import Dict, Any
 from aiohttp import ClientSession
 
 
-class AbstractSearch(ABC):
+class SearchMethod(ABC):
 
     @abstractmethod
     def get_books(

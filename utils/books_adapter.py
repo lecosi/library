@@ -1,7 +1,7 @@
 from typing import Dict, Any
 
-from apps.data_source.factories.constants import UNREGISTERED
-from apps.data_source.integrations.constants import SourceSearchTypeEnum
+from apps.data_source.integrations.constants import SourceSearchTypeEnum, \
+    UNREGISTERED
 from utils.serializers import BookDTO
 
 
@@ -16,7 +16,7 @@ class BooksAdapter:
             subtitle=item.get('subtitle', UNREGISTERED),
             editor=item.get('publisher', UNREGISTERED),
             description=item.get('description', UNREGISTERED),
-            publication_date=item.get('publishedDate'),
+            publication_date=item.get('published_date'),
             categories=item.get('categories'),
             authors=item.get('authors')
         )
@@ -32,7 +32,7 @@ class BooksAdapter:
             subtitle=item.get('subtitle', UNREGISTERED),
             editor=item.get('publisher', UNREGISTERED),
             description=item.get('content', UNREGISTERED),
-            publication_date=item.get('publisher_date'),
+            publication_date=item.get('published_date'),
             categories=parsed_categories,
             authors=item.get('author')
         )

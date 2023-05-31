@@ -37,8 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'graphene_django',
+    'rest_framework',
     'apps.data_source',
+    'apps.authentication',
     'utils'
 ]
 
@@ -93,16 +94,16 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 'django.contrib.authentication.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.authentication.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'django.contrib.authentication.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'django.contrib.authentication.password_validation.NumericPasswordValidator',
     },
 ]
 
@@ -129,10 +130,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-GRAPHENE = {
-    'SCHEMA': 'library.schema.schema'
-}
-
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
@@ -143,3 +140,4 @@ CACHES = {
     }
 }
 
+APPEND_SLASH = False

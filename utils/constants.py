@@ -1,0 +1,5 @@
+import os
+
+DEFAULT_CACHE_EXPIRATION_TIME = int(
+    os.getenv('DEFAULT_CACHE_EXPIRATION_TIME', '300')
+)
