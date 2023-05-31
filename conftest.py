@@ -9,9 +9,6 @@ from apps.authentication.services import JWTAuthService
 from rest_framework.test import APIClient
 
 
-HEADERS = {'Content-Type': 'application/json'}
-
-
 @pytest.fixture
 def user_initial(db) -> User:
     user = User.objects.create_user(
@@ -37,6 +34,6 @@ def user_with_api_authenticated(db) -> Tuple[APIClient, User, str]:
     access_token = tokens['access_token']
     refresh_token = tokens['refresh_token']
 
-    client = APIClient(headers=HEADERS)
+    client = APIClient()
     client.credentials(HTTP_AUTHORIZATION='Token: ' + access_token)
     return client, user, refresh_token
