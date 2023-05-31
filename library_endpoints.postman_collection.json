@@ -1,0 +1,212 @@
+{
+	"info": {
+		"_postman_id": "2be1a4ce-6aff-4e1d-a1e3-223679dfb672",
+		"name": "library_endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24316228",
+		"_collection_link": "https://warped-comet-329880.postman.co/workspace/Conekta~5640eeb7-b547-4213-a6e1-b3f260de7d20/collection/24316228-2be1a4ce-6aff-4e1d-a1e3-223679dfb672?action=share&creator=24316228&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "SignUp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"leonardo3\",\n    \"password\": \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/authentication/signup/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"authentication",
+						"signup",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"leonardo3\",\n    \"password\": \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/authentication/login/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"authentication",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Refresh token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2ODUzNjczNDUsInRva2VuX3R5cGUiOiJBQ0NFU1MifQ.R-gQPQGId2uMgMK5DtNrzcygE2D5o8ekSwaR6nsuiPQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2ODUzNjczNDUsInRva2VuX3R5cGUiOiJSRUZSRVNIIn0.Sc8WtAV8eMgbvvLekai9p6IS1zozn1ZLdjbks6sIkAU\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/authentication/refresh_token/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"authentication",
+						"refresh_token",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search_books",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2ODU1MzQ5NzksInRva2VuX3R5cGUiOiJBQ0NFU1MifQ.xCFLAmvOhLE3hixRKEvVFLTRChuG0GcCMRdEs2BydTg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"python\"            \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/book/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"book",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_book",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2ODU1MDYyODIsInRva2VuX3R5cGUiOiJBQ0NFU1MifQ.0dMVf92ySV75VCxGiwPOAzfRof8RFoFsWy_o9rwUlac",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"book_id\": \"16786\",\n    \"source\": \"open_library\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/book/new/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"book",
+						"new",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_book",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2ODU1MDYyODIsInRva2VuX3R5cGUiOiJBQ0NFU1MifQ.0dMVf92ySV75VCxGiwPOAzfRof8RFoFsWy_o9rwUlac",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/book/Io6fDwAAQBAJ/delete/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"book",
+						"Io6fDwAAQBAJ",
+						"delete",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
